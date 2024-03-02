@@ -1,0 +1,48 @@
+healthcare_project
+|-- healthcare_project
+|   |-- __init__.py
+|   |-- settings.py        # Configurações do projeto (ex: configurações de banco de dados, aplicativos instalados, etc.)
+|   |-- urls.py            # Configuração das URLs do projeto
+|   |-- wsgi.py            # Ponto de entrada para o servidor WSGI
+|-- healthcare
+|   |-- migrations         # Pasta contendo migrações de banco de dados geradas pelo Django
+|   |-- static             # Pasta para arquivos estáticos (CSS, JavaScript, etc.)
+|   |-- templates          # Pasta para arquivos de template HTML
+|   |-- __init__.py
+|   |-- admin.py           # Configuração do painel de administração do Django
+|   |-- apps.py            # Configuração da aplicação Django
+|   |-- models.py          # Definição dos modelos de banco de dados
+|   |-- forms.py           # Definição dos formulários do Django
+|   |-- urls.py            # Configuração das URLs da aplicação
+|   |-- views.py           # Definição das views do Django (lógica de negócios)
+|   |-- tests.py           # Testes automatizados
+|   |-- migrations         # Pasta para migrações do banco de dados específicas do aplicativo
+|   |-- admin/             # Pasta para personalização do painel de administração
+|   |-- templates/         # Pasta para templates HTML específicos do aplicativo
+|-- templates               # Pasta para templates HTML compartilhados entre os aplicativos
+|-- manage.py               # Script para gerenciamento do projeto Django
+
+
+Comentários sobre onde novas funcionalidades podem ser implementadas:
+
+Models.py: Novos modelos de banco de dados podem ser adicionados aqui para suportar novas funcionalidades. Por exemplo, se você deseja adicionar a funcionalidade de envio de mensagens entre usuários, pode criar um modelo Message aqui.
+
+Views.py: As views são onde a lógica de negócios é implementada. Novas funcionalidades, como agendamento de consultas, envio de mensagens, etc., podem ser implementadas adicionando novas views ou atualizando as existentes.
+
+Templates: Os arquivos HTML em templates/ são usados para renderizar as páginas da web. Novas funcionalidades podem exigir a criação de novos templates ou a atualização dos existentes para incluir elementos adicionais na interface do usuário.
+
+Urls.py: As URLs são mapeadas para views específicas em urls.py. Se você adicionar novas funcionalidades com novas views, precisará definir URLs correspondentes aqui.
+
+Admin.py: Se você deseja que os novos modelos sejam acessíveis no painel de administração do Django, pode registrá-los aqui.
+
+Forms.py: Se novos formulários forem necessários para suportar as novas funcionalidades, você pode defini-los em forms.py.
+
+Static: Arquivos estáticos como CSS, JavaScript, imagens, etc., podem ser adicionados aqui para suportar as atualizações de interface do usuário.
+
+Tests.py: Testes automatizados devem ser escritos para garantir que as novas funcionalidades estejam funcionando conforme o esperado e não quebrem funcionalidades existentes.
+
+Rodar o projeto
+
+python manage.py runserver 
+
+http://localhost:8000/healthcare
