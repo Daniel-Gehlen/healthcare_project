@@ -1,0 +1,38 @@
+/* Estilo global para o corpo do documento */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para a barra de navegação */
+.navbar {
+    background-color: #4CAF50; /* Cor de fundo da barra de navegação */
+}
+
+.navbar-brand {
+    color: white; /* Cor do texto do logotipo */
+    font-size: 24px; /* Tamanho da fonte do logotipo */
+    font-weight: bold; /* Peso da fonte do logotipo */
+}
+
+.navbar-nav .nav-link {
+    color: white; /* Cor dos links na barra de navegação */
+    font-size: 16px; /* Tamanho da fonte dos links na barra de navegação */
+    font-weight: bold; /* Peso da fonte dos links na barra de navegação */
+}
+
+/* Estilo para o conteúdo da página */
+.container {
+    margin-top: 20px; /* Espaçamento superior do conteúdo */
+}
+
+/* Estilo para links */
+a {
+    text-decoration: none; /* Remover sublinhado padrão dos links */
+    color: #007bff; /* Cor padrão dos links */
+}
+
+a:hover {
+    text-decoration: underline; /* Adicionar sublinhado ao passar o mouse sobre os links */
+}
