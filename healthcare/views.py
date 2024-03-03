@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Bem-vindo ao sistema Healthcare!")
+    return render(request, 'base.html')
 
 def listar_usuarios(request):
     # Lógica para listar usuários
@@ -17,8 +17,8 @@ def listar_consultas(request):
     return render(request, 'consultas/listar_consultas.html')
 
 def detalhes_consultas(request, pk):
-    # Lógica para exibir detalhes de uma consulta específica com id 'pk'
-    return render(request, 'consultas/detalhes_consultas.html', {'pk': pk})
+    consulta = Consulta.objects.first()  # Obtenha a primeira consulta do banco de dados
+    return render(request, 'meu_template.html', {'consulta': consulta})
 
 def listar_informacoes_medicas(request):
     # Lógica para listar informações médicas
