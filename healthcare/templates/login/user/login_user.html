@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Formulário de login -->
+<h2>Login usuário</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+</form>
+
+<!-- Exibir mensagens de erro -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<!-- Link para a página de cadastro -->
+<p>Não tem uma conta? <a href="{% url 'cadastro_user' %}">Cadastre-se aqui</a></p>
+{% endblock %}
