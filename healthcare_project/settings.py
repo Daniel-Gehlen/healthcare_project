@@ -55,7 +55,7 @@ ROOT_URLCONF = 'healthcare_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'healthcare', 'templates')],  # Adicione esta linha
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +67,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 
@@ -126,3 +127,8 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login_staff'
+LOGOUT_URL = 'logout_staff'
+LOGIN_REDIRECT_URL = 'base'  # Substitua 'home' pelo nome da sua rota para a página inicial
+

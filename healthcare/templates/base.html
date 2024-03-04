@@ -9,55 +9,20 @@
 </head>
 <body>
 
-<!-- Barra de navegação para usuários comuns -->
+<!-- Barra de navegação para login de usuários e colaboradores -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Healthcare</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <!-- ... -->
         <div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				{% if consultas %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'listar_consultas' %}">Minhas Consultas</a>
-					</li>
-					{% for consulta in consultas %}
-						<li class="nav-item">
-							<a class="nav-link" href="{% url 'detalhes_consultas' pk=consulta.pk %}">Detalhes</a>
-						</li>
-					{% endfor %}
-				{% else %}
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'listar_consultas' %}">Minhas Consultas</a>
-					</li>
-				{% endif %}
-				<!-- Adicione mais itens de menu conforme necessário para os usuários comuns -->
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login_user' %}">Login como Usuário</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'login_staff' %}">Login como Staff</a>
+				</li>
 			</ul>
-
         </div>
-    </div>
-</nav>
-
-<!-- Barra de navegação para administradores -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Healthcare Admin</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="adminNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listar_usuarios' %}">Listar Usuários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'listar_relatorios' %}">Listar Relatórios</a>
-                </li>
-                <!-- Adicione mais itens de menu conforme necessário para os administradores -->
-            </ul>
-        </div>
-    </div>
+    <!-- ... -->
 </nav>
 
 <!-- Conteúdo da página -->
