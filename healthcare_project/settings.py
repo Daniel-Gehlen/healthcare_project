@@ -1,7 +1,8 @@
-from pathlib import Path
+# settings.py
+
 import os
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'django-insecure-em3(aknc1lv8*+4@&87nj@)yyji+7w&ev398@prr029jc=&4zv'
 
@@ -16,7 +17,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'healthcare_app',
+    'appointments',
+    'legacy_system_integration',
 ]
 
 MIDDLEWARE = [
@@ -52,39 +54,12 @@ WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
-
 STATIC_URL = '/static/'
 
-# Caminho para os arquivos estáticos coletados
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'healthcare_app.views': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

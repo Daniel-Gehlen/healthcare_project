@@ -1,8 +1,9 @@
-from django.conf import settings
-from django.conf.urls.static import static
+# urls.py
+
+from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('healthcare_app/', include('healthcare_app.urls')),  # Certifique-se de usar o nome correto do aplicativo
+    path('admin/', admin.site.urls),
+    path('', include('appointments.urls')),
 ]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

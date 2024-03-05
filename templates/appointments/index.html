@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Consultas{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Lista de Consultas</h1>
+    <ul>
+      {% for appointment in appointments %}
+        <li>{{ appointment.doctor }} - {{ appointment.date }} às {{ appointment.time }}</li>
+      {% empty %}
+        <li>Nenhuma consulta agendada.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

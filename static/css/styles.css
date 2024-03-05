@@ -1,72 +1,74 @@
+/* styles.css */
+
 /* Reset de estilos */
-body, html {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos globais */
+body {
     font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Cor de fundo suave */
 }
 
-/* Estilos para a barra de navegação */
-.navbar {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Estilos para o conteúdo da página */
 .container {
-    max-width: 1200px;
+    width: 80%;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Estilos para cabeçalhos */
+h1, h2, h3 {
+    color: #333; /* Cor do texto principal */
+    margin-bottom: 10px;
+}
+
+/* Estilos para parágrafos */
+p {
+    color: #666; /* Cor do texto secundário */
+    line-height: 1.5;
+}
+
+/* Estilos para links */
+a {
+    color: #00bcd4; /* Cor dos links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #007d8c; /* Cor dos links ao passar o mouse */
+}
+
 /* Estilos para botões */
 .btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
+    display: inline-block;
     padding: 10px 20px;
+    background-color: #00bcd4; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #007d8c; /* Cor de fundo do botão ao passar o mouse */
 }
 
 /* Estilos para formulários */
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
-.form-group select {
+input[type="text"],
+input[type="email"],
+textarea,
+select {
     width: 100%;
     padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="password"]:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #007bff;
-}
+/* Outros estilos conforme necessário */

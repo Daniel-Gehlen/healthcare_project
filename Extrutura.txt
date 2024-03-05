@@ -1,28 +1,65 @@
 healthcare_project
+|--static/
+|   |--css/
+|   |--img/
+|   |--js/
 |-- healthcare_project
 |   |-- __init__.py
 |   |-- settings.py        # Configurações do projeto (ex: configurações de banco de dados, aplicativos instalados, etc.)
 |   |-- urls.py            # Configuração das URLs do projeto
 |   |-- wsgi.py            # Ponto de entrada para o servidor WSGI
 |-- healthcare
-|   |-- migrations         # Pasta contendo migrações de banco de dados geradas pelo Django
-|   |-- static             # Pasta para arquivos estáticos (CSS, JavaScript, etc.)
-|   |-- templates          # Pasta para arquivos de template HTML
-|   |-- __init__.py
-|   |-- admin.py           # Configuração do painel de administração do Django
-|   |-- apps.py            # Configuração da aplicação Django
-|   |-- models.py          # Definição dos modelos de banco de dados
-|   |-- forms.py           # Definição dos formulários do Django
-|   |-- urls.py            # Configuração das URLs da aplicação
-|   |-- views.py           # Definição das views do Django (lógica de negócios)
-|   |-- tests.py           # Testes automatizados
-|   |-- migrations         # Pasta para migrações do banco de dados específicas do aplicativo
-|   |-- admin/             # Pasta para personalização do painel de administração
-|   |-- templates/         # Pasta para templates HTML específicos do aplicativo
-|-- templates               # Pasta para templates HTML compartilhados entre os aplicativos
-|-- manage.py               # Script para gerenciamento do projeto Django
+|   |-- migrations/         # Pasta contendo migrações de banco de dados geradas pelo Django
+|   |--|--avaliacoes/
+|   |--|--|--detalhes_avaliacoes.html
+|   |--|--|--listar_avaliacoes.html
+|   |--|--cadastro/
+|   |--|--|--staff/
+|   |--|--|--|--cadastro_staff.html
+|   |--|--|--user/
+|   |--|--|--|--cadastro_user.html
+|   |--|--configuracoes/
+|   |--|--|--detalhes_configuracoes.html
+|   |--|--|--listar_configuracoes.html
+|   |--|--consultas/
+|   |--|--|--detalhes_consultas.html
+|   |--|--|--listar_consultas.html
+|   |--|--dashboard/
+|   |--|--|--staff/
+|   |--|--|--|--taff_dashboard.html
+|   |--|--|--user/
+|   |--|--|--|--user_dashboard.html
+|   |--|--informacoes/
+|   |--|--|--detalhes_informacoes_medicas.html
+|   |--|--|--listar_informacoes_medicas.html
+|   |--|--login/
+|   |--|--|--staff/
+|   |--|--|--|--login_taff.html
+|   |--|--|--user/
+|   |--|--|--|--login_user.html
+|   |--|--mensagens/
+|   |--|--|--detalhes_mensagens.html
+|   |--|--|--listar_mensagens.html
+|   |--|--relatorios/
+|   |--|--|--detalhes_relatorios.html
+|   |--|--|--listar_relatorios.html
+|   |--|--usuarios/
+|   |--|--|--detalhes_usuarios.html
+|   |--|--|--listar_usuarios.html
+|   |--|--base.html          
+|   |-- __init__.py   
+|   |-- admin.py       
+|   |-- apps.py            
+|   |-- models.py          
+|   |-- forms.py           
+|   |-- urls.py            
+|   |-- views.py          
+|   |-- tests.py                       
+|manage.py               
+|sqlite3               
 
 
+=========================================================================
 Comentários sobre onde novas funcionalidades podem ser implementadas:
 
 Models.py: Novos modelos de banco de dados podem ser adicionados aqui para suportar novas funcionalidades. Por exemplo, se você deseja adicionar a funcionalidade de envio de mensagens entre usuários, pode criar um modelo Message aqui.
@@ -41,8 +78,50 @@ Static: Arquivos estáticos como CSS, JavaScript, imagens, etc., podem ser adici
 
 Tests.py: Testes automatizados devem ser escritos para garantir que as novas funcionalidades estejam funcionando conforme o esperado e não quebrem funcionalidades existentes.
 
+=========================================================================
+
+um aplicativo só para facilitar o objetivo
+
+healthcare_project/
+|-- authentication/
+|   |-- migrations/
+|   |-- templates/
+|   |-- |-- authentication/
+|   |-- |-- |-- login.html
+|   |-- |-- |-- register.html
+|   |-- |-- |-- logout.html
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- forms.py   # Novo arquivo para formulários de autenticação
+|   |-- models.py
+|   |-- urls.py
+|   |-- views.py
+|-- appointment_scheduling/
+|   |-- migrations/
+|   |-- templates/
+|   |-- |-- appointment_scheduling/
+|   |-- |-- |-- appointment_list.html
+|   |-- |-- |-- appointment_detail.html
+|   |-- |-- |-- appointment_calendar.html
+|   |-- __init__.py
+|   |-- admin.py
+|   |-- apps.py
+|   |-- models.py
+|   |-- urls.py
+|   |-- views.py
+|   |-- utils.py
+|-- legacy_system_integration/
+|   |-- __init__.py
+|   |-- integration.py
+|-- healthcare_project/
+|-- manage.py
+|-- db.sqlite3
+
+
+
 Rodar o projeto
 
-python manage.py runserver 
+python manage.py runserver
 
-http://localhost:8000/healthcare
+http://localhost:8000/healthcare_app
