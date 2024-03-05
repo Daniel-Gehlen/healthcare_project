@@ -1,38 +1,72 @@
-/* Estilo global para o corpo do documento */
-body {
-    font-family: Arial, sans-serif;
+/* Reset de estilos */
+body, html {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Estilo para a barra de navegação */
+/* Estilos para a barra de navegação */
 .navbar {
-    background-color: #4CAF50; /* Cor de fundo da barra de navegação */
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
 }
 
-.navbar-brand {
-    color: white; /* Cor do texto do logotipo */
-    font-size: 24px; /* Tamanho da fonte do logotipo */
-    font-weight: bold; /* Peso da fonte do logotipo */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
 }
 
-.navbar-nav .nav-link {
-    color: white; /* Cor dos links na barra de navegação */
-    font-size: 16px; /* Tamanho da fonte dos links na barra de navegação */
-    font-weight: bold; /* Peso da fonte dos links na barra de navegação */
+.navbar a:hover {
+    text-decoration: underline;
 }
 
-/* Estilo para o conteúdo da página */
+/* Estilos para o conteúdo da página */
 .container {
-    margin-top: 20px; /* Espaçamento superior do conteúdo */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Estilo para links */
-a {
-    text-decoration: none; /* Remover sublinhado padrão dos links */
-    color: #007bff; /* Cor padrão dos links */
+/* Estilos para botões */
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-a:hover {
-    text-decoration: underline; /* Adicionar sublinhado ao passar o mouse sobre os links */
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para formulários */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
 }

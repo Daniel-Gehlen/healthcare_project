@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare App</title>
+    <!-- Link para o seu arquivo CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Conteúdo da página vai aqui -->
+    {% block content %}
+    <!-- navbar.html -->
+<nav class="navbar">
+    <ul>
+        <li><a href="{% url 'home' %}">Página Inicial</a></li>
+        <li><a href="{% url 'authentication' %}">Lista de Pacientes</a></li>
+        <li><a href="{% url 'appointment_schedule' %}">Agendar Consulta</a></li>
+    </ul>
+</nav>
+    {% endblock %}
+</body>
+</html>

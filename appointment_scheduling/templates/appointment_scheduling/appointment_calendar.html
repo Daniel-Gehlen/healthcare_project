@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Consulta</title>
+</head>
+<body>
+    <h1>Agendar Consulta</h1>
+    <form action="{% url 'appointment_calendar' %}" method="post">
+        {% csrf_token %}
+        <label for="patient_name">Nome do Paciente:</label>
+        <input type="text" id="patient_name" name="patient_name"><br><br>
+
+        <label for="doctor_name">Nome do Médico:</label>
+        <input type="text" id="doctor_name" name="doctor_name"><br><br>
+
+        <label for="appointment_datetime">Data e Hora da Consulta:</label>
+        <input type="datetime-local" id="appointment_datetime" name="appointment_datetime"><br><br>
+
+        <input type="submit" value="Agendar Consulta">
+    </form>
+</body>
+</html>
