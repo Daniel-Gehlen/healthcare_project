@@ -7,7 +7,7 @@
     <h1>Lista de Consultas</h1>
     <ul>
         {% for appointment in appointments %}
-        <li>{{ appointment.doctor }} - {{ appointment.date }} às {{ appointment.time }}</li>
+        <li>{{ appointment.health_professional }} - {{ appointment.date }} às {{ appointment.time }}</li>
         {% empty %}
         <li>Nenhuma consulta agendada.</li>
         {% endfor %}
