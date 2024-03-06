@@ -1,0 +1,18 @@
+<!-- user_profile.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Perfil do Usuário{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Perfil do Usuário</h1>
+    <p>Informações do usuário:</p>
+    <ul>
+        <li>Nome: {{ user.username }}</li>
+        <li>Email: {{ user.email }}</li>
+        <!-- Adicione outras informações do usuário conforme necessário -->
+    </ul>
+    <a href="{% url 'appointment_scheduler' %}" class="btn btn-primary">Agendar Consulta</a>
+</div>
+{% endblock %}

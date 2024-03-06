@@ -3,5 +3,43 @@
 {% block title %}Agendamento de Consultas{% endblock %}
 
 {% block content %}
-    <!-- Conteúdo da página de agendamento de consultas -->
+<div class="container">
+    <h1>Agendamento de Consultas</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="id_appointment_date">Appointment Date:</label>
+        <input type="text" id="id_appointment_date">
+        <div id="available-times">
+            <!-- Aqui serão exibidos os horários disponíveis dinamicamente -->
+        </div>
+        <button type="submit">Agendar</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Função para abrir o Datepicker quando o campo "Appointment date" for clicado
+        $('#id_appointment_date').datepicker();
+
+        // Função para carregar os horários disponíveis ao selecionar uma data
+        $('#id_appointment_date').change(function() {
+            var selectedDate = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '/get_available_times/',  // URL para a view do Django
+                data: {'appointment_date': selectedDate},
+                success: function(data) {
+                    $('#available-times').empty();
+                    $.each(data, function(index, value) {
+                        $('#available-times').append('<label><input type="radio" name="time" value="' + value + '">' + value + '</label><br>');
+                    });
+                }
+            });
+        });
+    });
+</script>
 {% endblock %}

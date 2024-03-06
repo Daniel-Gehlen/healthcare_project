@@ -83,27 +83,18 @@ Tests.py: Testes automatizados devem ser escritos para garantir que as novas fun
 um aplicativo só para facilitar o objetivo
 
 healthcare_project/
-|-- authentication/
-|   |-- migrations/
-|   |-- templates/
-|   |-- |-- authentication/
-|   |-- |-- |-- login.html
-|   |-- |-- |-- register.html
-|   |-- |-- |-- logout.html
-|   |-- __init__.py
-|   |-- admin.py
-|   |-- apps.py
-|   |-- forms.py   # Novo arquivo para formulários de autenticação
-|   |-- models.py
-|   |-- urls.py
-|   |-- views.py
-|-- appointment_scheduling/
-|   |-- migrations/
-|   |-- templates/
-|   |-- |-- appointment_scheduling/
-|   |-- |-- |-- appointment_list.html
-|   |-- |-- |-- appointment_detail.html
-|   |-- |-- |-- appointment_calendar.html
+├── static/
+│   ├── css/
+│   ├── js/
+│   └── img/
+|-- templates/
+│   ├── appointments/
+│   │   └── index.html
+│   ├── base.html
+│   ├── login.html
+│   ├── appointment_history.html
+│   └── appointment_scheduler.html
+|-- appointments/
 |   |-- __init__.py
 |   |-- admin.py
 |   |-- apps.py
@@ -115,6 +106,11 @@ healthcare_project/
 |   |-- __init__.py
 |   |-- integration.py
 |-- healthcare_project/
+|   |-- __init__.py
+|   |-- asgi.py
+|   |-- settings.py        
+|   |-- urls.py            
+|   |-- wsgi.py  
 |-- manage.py
 |-- db.sqlite3
 
@@ -124,4 +120,14 @@ Rodar o projeto
 
 python manage.py runserver
 
-http://localhost:8000/healthcare_app
+http://localhost:8000/admin
+
+
+o nome do projeto é healthcare_project
+- ele deve ser um agendador de conultas medicas
+- ele deve ser acoplado a um sistema legado onde
+- ele deve pegar informações de disponibilidade de horarios em dias da semana do calendario do sistema legado em tempo real
+- ele deve permitir que usuários comuns possam agendar consultas com determinado profissional da saúde a partir do calendário
+- ele deve permitir que os usuários comuns façam a authenticação que é nativa do django
+- após consulta marcada deve indisponibilizar tal horario com tal profissional 
+- deve ter uma página de login.html e uma página de histórico de consultas, uma para agendar consultas.

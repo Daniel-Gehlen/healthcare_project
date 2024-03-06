@@ -71,4 +71,16 @@ select {
     box-sizing: border-box;
 }
 
+/* styles.css */
+
+label {
+    display: block; /* Faz com que os labels ocupem uma linha inteira */
+    margin-bottom: 5px; /* Adiciona um pequeno espaço entre os labels */
+}
+
+input {
+    display: block; /* Faz com que os inputs ocupem uma linha inteira */
+    margin-bottom: 10px; /* Adiciona um espaço entre os inputs */
+}
+
 /* Outros estilos conforme necessário */
