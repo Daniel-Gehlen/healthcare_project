@@ -1,5 +1,9 @@
+# urls.py
+
+from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('healthcare/', include('healthcare.urls')),  # Adicione esta linha para incluir as URLs do aplicativo 'healthcare'
+    path('admin/', admin.site.urls),
+    path('', include('appointments.urls')),
 ]

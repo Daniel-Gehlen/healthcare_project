@@ -1,38 +1,86 @@
-/* Estilo global para o corpo do documento */
-body {
-    font-family: Arial, sans-serif;
+/* styles.css */
+
+/* Reset de estilos */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Estilo para a barra de navegação */
-.navbar {
-    background-color: #4CAF50; /* Cor de fundo da barra de navegação */
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8; /* Cor de fundo suave */
 }
 
-.navbar-brand {
-    color: white; /* Cor do texto do logotipo */
-    font-size: 24px; /* Tamanho da fonte do logotipo */
-    font-weight: bold; /* Peso da fonte do logotipo */
-}
-
-.navbar-nav .nav-link {
-    color: white; /* Cor dos links na barra de navegação */
-    font-size: 16px; /* Tamanho da fonte dos links na barra de navegação */
-    font-weight: bold; /* Peso da fonte dos links na barra de navegação */
-}
-
-/* Estilo para o conteúdo da página */
 .container {
-    margin-top: 20px; /* Espaçamento superior do conteúdo */
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Estilo para links */
+/* Estilos para cabeçalhos */
+h1, h2, h3 {
+    color: #333; /* Cor do texto principal */
+    margin-bottom: 10px;
+}
+
+/* Estilos para parágrafos */
+p {
+    color: #666; /* Cor do texto secundário */
+    line-height: 1.5;
+}
+
+/* Estilos para links */
 a {
-    text-decoration: none; /* Remover sublinhado padrão dos links */
-    color: #007bff; /* Cor padrão dos links */
+    color: #00bcd4; /* Cor dos links */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    text-decoration: underline; /* Adicionar sublinhado ao passar o mouse sobre os links */
+    color: #007d8c; /* Cor dos links ao passar o mouse */
 }
+
+/* Estilos para botões */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00bcd4; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #007d8c; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilos para formulários */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* styles.css */
+
+label {
+    display: block; /* Faz com que os labels ocupem uma linha inteira */
+    margin-bottom: 5px; /* Adiciona um pequeno espaço entre os labels */
+}
+
+input {
+    display: block; /* Faz com que os inputs ocupem uma linha inteira */
+    margin-bottom: 10px; /* Adiciona um espaço entre os inputs */
+}
+
+/* Outros estilos conforme necessário */
