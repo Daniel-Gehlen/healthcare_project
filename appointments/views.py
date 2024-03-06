@@ -3,7 +3,7 @@ from datetime import datetime
 import requests
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseServerError
 from django.shortcuts import render, redirect
 
 from .forms import SignUpForm, AppointmentForm
@@ -11,11 +11,17 @@ from .models import Appointment, HealthProfessional
 
 
 def appointment_history(request):
-    # Obtenha todas as consultas do banco de dados
-    appointments = Appointment.objects.all()
+    try:
+        # Obtenha todas as consultas do banco de dados
+        appointments = Appointment.objects.all()
 
-    # Renderize o template com os dados das consultas no contexto
-    return render(request, 'appointment_history.html', {'appointments': appointments})
+        # Renderize o template com os dados das consultas no contexto
+        return render(request, 'appointment_history.html', {'appointments': appointments})
+    except Exception as e:
+        # Se ocorrer um erro, imprima o erro no console para fins de depuração
+        print(f"Erro ao renderizar a página de histórico de consultas: {e}")
+        # Retorne uma resposta HTTP com um status de erro 500 (Internal Server Error)
+        return HttpResponseServerError("Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.")
 
 
 def appointment_scheduler(request):
@@ -28,8 +34,8 @@ def appointment_scheduler(request):
             return redirect('appointment_history')
     else:
         form = AppointmentForm()
-    health_professionals = HealthProfessional.objects.all()  # Obter todos os profissionais de saúde
     return render(request, 'appointment_scheduler.html', {'form': form})
+
 
 def get_available_times(request):
     selected_date = request.GET.get('appointment_date')
@@ -49,7 +55,32 @@ def fetch_available_times_from_legacy_system(selected_date, health_professional_
     except requests.RequestException as e:
         print(
             f"Erro ao obter horários disponíveis para a data {selected_date} e profissional {health_professional_id}: {e}")
-        return []
+        return ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00']
+
+
+def schedule_appointment(request):
+    if request.method == 'POST':
+        user = request.user
+        health_professional_id = request.POST.get('health_professional')
+        date = request.POST.get('appointment_date')
+        time = request.POST.get('time')
+
+        health_professional = HealthProfessional.objects.get(id=health_professional_id)
+
+        # Criar o objeto de consulta agendada
+        Appointment.objects.create(user=user, health_professional=health_professional, date=date,
+                                   time=time)
+
+        # Redirecionar para a página de histórico de consultas
+        appointments = Appointment.objects.filter(user=user)
+        return render(request, 'appointment_history.html', {'appointments': appointments})
+
+    # Se não for uma solicitação POST, renderizar a página de agendamento com os horários disponíveis
+    professionals = HealthProfessional.objects.all()
+    selected_date = request.GET.get('appointment_date')
+    available_times = get_available_times(selected_date)
+    return render(request, 'appointment_schedule.html',
+                  {'professionals': professionals, 'available_times': available_times})
 
 
 def login_view(request):

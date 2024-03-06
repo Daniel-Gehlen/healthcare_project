@@ -5,13 +5,23 @@
 {% block content %}
 <div class="container">
     <h1>Agendamento de Consultas</h1>
-    <form method="post">
+    <form method="post" action="{% url 'schedule_appointment' %}">
         {% csrf_token %}
-        <label for="id_appointment_date">Appointment Date:</label>
+        <label for="id_health_professional">Profissional de Saúde:</label>
+        <select name="health_professional" id="id_health_professional">
+            {% for professional in professionals %}
+                <option value="{{ professional.id }}">{{ professional.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="id_appointment_date">Data da Consulta:</label>
         <input type="text" id="id_appointment_date">
+        <br>
+        <label>Horários Disponíveis:</label>
         <div id="available-times">
             <!-- Aqui serão exibidos os horários disponíveis dinamicamente -->
         </div>
+        <br>
         <button type="submit">Agendar</button>
     </form>
 </div>
@@ -22,16 +32,20 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script>
     $(document).ready(function() {
-        // Função para abrir o Datepicker quando o campo "Appointment date" for clicado
+        // Função para abrir o Datepicker quando o campo "Data da Consulta" for clicado
         $('#id_appointment_date').datepicker();
 
-        // Função para carregar os horários disponíveis ao selecionar uma data
-        $('#id_appointment_date').change(function() {
-            var selectedDate = $(this).val();
+        // Função para carregar os horários disponíveis ao selecionar uma data e profissional
+        $('#id_appointment_date, #id_health_professional').change(function() {
+            var selectedDate = $('#id_appointment_date').val();
+            var selectedProfessional = $('#id_health_professional').val();
             $.ajax({
                 type: 'GET',
-                url: '/get_available_times/',  // URL para a view do Django
-                data: {'appointment_date': selectedDate},
+                url: '/get_available_times/',
+                data: {
+                    'appointment_date': selectedDate,
+                    'health_professional': selectedProfessional
+                },
                 success: function(data) {
                     $('#available-times').empty();
                     $.each(data, function(index, value) {
