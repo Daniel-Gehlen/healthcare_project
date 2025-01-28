@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"  # Para dependências Python
+    directory: "/"            # Diretório onde o requirements.txt está
+    schedule:
+      interval: "daily"       # Verifica atualizações diariamente
+    # Configurações de automação
+    automerge: true           # Mescla automaticamente os PRs se os testes passarem
+    automerge-strategy: "auto" # Estratégia de mesclagem automática
+    labels:                   # Adiciona rótulos aos PRs
+      - "dependencies"
+      - "automated"
+    ignore:                   # Ignora dependências específicas ou versões
+      - dependency-name: "django"
+        versions: ["2.2.*"]   # Ignora atualizações para Django 2.2.x
+    # Configurações de segurança
+    vulnerability-alerts:
+      enabled: true           # Habilita alertas de vulnerabilidades
+      auto-dismiss: true      # Fecha automaticamente alertas resolvidos
+      auto-remediate: true    # Abre PRs automaticamente para corrigir vulnerabilidades
+    open-pull-requests-limit: 10  # Limita o número de PRs abertos simultaneamente
