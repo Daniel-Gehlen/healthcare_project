@@ -54,12 +54,12 @@ WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 # Configuração do banco de dados PostgreSQL
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'ENGINE': 'django.db.backends.postgresql',  # Usa o backend do PostgreSQL
+        'NAME': 'postgres',  # Nome do banco de dados
+        'USER': 'postgres',  # Usuário do banco de dados
+        'PASSWORD': '[YOUR-PASSWORD]',  # Senha do banco de dados
+        'HOST': 'db.wvjnbetvseupldjkofhi.supabase.co',  # Host do Supabase
+        'PORT': '5432',  # Porta do banco de dados
     }
 }
 
