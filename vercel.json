@@ -1,18 +1,25 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "healthcare_project/wsgi.py",
       "use": "@vercel/python"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "healthcare_project/wsgi.py"
+  "build": {
+    "env": {
+      "DB_NAME": "@db_name",
+      "DB_USER": "@db_user",
+      "DB_PASSWORD": "@db_password",
+      "DB_HOST": "@db_host",
+      "DB_PORT": "@db_port",
+      "SECRET_KEY": "@secret_key",
+      "DEBUG": "False",
+      "ALLOWED_HOSTS": "your-vercel-app-url.vercel.app"
     },
-    {
-      "src": "/static/(.*)",
-      "dest": "static/$1"
-    }
-  ]
+    "commands": [
+      "pip install -r requirements.txt",
+      "python manage.py migrate"
+    ]
+  }
 }
