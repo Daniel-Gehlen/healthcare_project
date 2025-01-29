@@ -1,12 +1,14 @@
 import os
 
+# Carrega as variáveis de ambiente do arquivo .env
+load_dotenv()
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'django-insecure-em3(aknc1lv8*+4@&87nj@)yyji+7w&ev398@prr029jc=&4zv'
-
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# Configurações do Django
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,11 +55,11 @@ WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'nomedobanco'),
-        'USER': os.getenv('DB_USER', 'usuario'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'senha'),
-        'HOST': os.getenv('DB_HOST', 'localhost'),
-        'PORT': os.getenv('DB_PORT', '5432'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
