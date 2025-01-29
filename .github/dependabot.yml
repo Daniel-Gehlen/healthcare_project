@@ -11,3 +11,8 @@ updates:
     ignore:                   # Ignora dependências específicas ou versões
       - dependency-name: "django"
         versions: ["2.2.*"]   # Ignora atualizações para Django 2.2.x
+    commit-message:           # Personaliza a mensagem de commit
+      prefix: "chore"
+      include: "scope"
+    automerge: true           # Habilita o merge automático
+    automerge-strategy: "squash"  # Define a estratégia de merge (squash, merge, rebase)
