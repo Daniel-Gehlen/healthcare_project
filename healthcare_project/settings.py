@@ -53,11 +53,11 @@ WSGI_APPLICATION = 'healthcare_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nomedobanco',
-        'USER': 'usuario',
-        'PASSWORD': 'senha',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.getenv('DB_NAME', 'nomedobanco'),
+        'USER': os.getenv('DB_USER', 'usuario'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'senha'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
