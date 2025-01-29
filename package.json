@@ -1,0 +1,10 @@
+{
+  "name": "healthcare_project",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "pip install -r requirements.txt && python manage.py migrate"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
