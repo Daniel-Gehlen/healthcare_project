@@ -16,10 +16,6 @@
       "SECRET_KEY": "@secret_key",
       "DEBUG": "False",
       "ALLOWED_HOSTS": "your-vercel-app-url.vercel.app"
-    },
-    "commands": [
-      "pip install -r requirements.txt",
-      "python manage.py migrate"
-    ]
+    }
   }
 }
